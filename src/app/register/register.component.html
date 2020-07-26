@@ -1,0 +1,60 @@
+<div class="col-lg-12" style="background-color: aliceblue; padding-left: 200px; padding-right: 200px;">
+    <div class="signup-form">
+        <form [formGroup]="postResult" (submit)=postSubmit()>
+            <br>
+            <h2 style="text-align: center;">Register</h2>
+            <p class="hint-text">Create your account</p>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col"><input type="text" class="form-control" name="firstName" placeholder="First Name"
+                            formControlName="firstName" required="required">
+                        <span *ngIf="!postResult.get('firstName').valid && postResult.get('firstName').touched"
+                            style="color: blue;">Please Enter Firstname</span>
+                    </div>
+                    <div class="col"><input type="text" class="form-control" name="lastName" placeholder="Last Name"
+                            formControlName="lastName" required="required">
+                        <span *ngIf="!postResult.get('lastName').valid && postResult.get('lastName').touched"
+                            style="color: blue;">Please Enter Lastname</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email"
+                    formControlName="email" required="required">
+                <span *ngIf="!postResult.get('email').valid && postResult.get('email').touched"
+                    style="color: blue;">Please Enter email</span>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <input [type]="fieldTextType ? 'text' : 'password'" class="form-control" name="password" id="password" placeholder="Password"
+                        formControlName="password" required="required">
+                    <div class="input-group-append">
+                        <span class="input-group-text">
+
+                            <i class="fa"
+                            [ngClass]="{
+                                'fa-eye-slash': !fieldTextType,
+                                'fa-eye': fieldTextType
+                              }" (click)="toggleFieldTextType()"></i>
+
+                        </span>
+                    </div>
+
+                </div>
+
+                <span *ngIf="!postResult.get('password').valid && postResult.get('password').touched"
+                    style="color: blue;">Please Enter password</span>
+            </div>
+            <div class="form-group">
+                <label class="form-check-label"><input type="checkbox" required="required"> I accept the Terms of Use
+                    Privacy Policy</label>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Register Now</button>
+            </div>
+        </form>
+        <div class="text-center">Already have an account? <a routerLink="/login">Sign in</a></div>
+
+    </div>
+    <br><br><br>
+</div>

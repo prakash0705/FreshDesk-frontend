@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "FreshDesk-Reservation"
+    }
+  },
+  "defaultProject": "FreshDesk-Reservation",
+  "cli": {
+    "analytics": "9895bf83-d3a0-41c5-8d7a-f4f383e0fdaf"
+  }
 }

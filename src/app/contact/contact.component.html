@@ -1,0 +1,44 @@
+<div class="row1" style="background-color:antiquewhite;">
+    <div class="container" >
+        <div class="col-lg-6 offset-lg-3" >
+            <br><br>
+            <div class="card" style="width: 30rem;">
+                <div class="card-body">
+                    <p class="card-text font-weight-bold text-center">Your Profile</p>
+                    <hr>
+                    <label style="display: inline; font-weight: bolder;">First Name: </label>
+                    <p style="display: inline;">&nbsp;&nbsp;&nbsp;&nbsp;{{FirstName}}</p>
+                    <br><br>
+                    <label style="display: inline; font-weight: bolder;">Last Name: </label>
+                    <p style="display: inline;">&nbsp;&nbsp;&nbsp;&nbsp;{{LastName}}</p>
+                    <br><br>
+                    <label style="display: inline; font-weight: bolder;">Email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <p style="display: inline;">&nbsp;&nbsp;&nbsp;&nbsp;{{Email}}</p>
+                    <br><br>
+                    <label *ngIf="this.isContactVisible"
+                        style="display: inline; font-weight: bolder;">Phone&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    </label>
+                    <p style="display: inline; " *ngIf="this.isContactVisible">&nbsp;&nbsp;&nbsp;&nbsp;{{contactNumber}}</p>
+                    <button type="button" value="change" class="btn btn-link" *ngIf="this.isContactVisible" (click)="changeField()">Change</button>
+                    <hr>
+                    <p *ngIf="!this.isContactVisible">Add contact will reach you once if something needed</p>
+                    <a class="btn btn-primary" *ngIf="!this.isContactVisible" (click)="changeField()"
+                        style="font-weight: bolder;">Add Contact</a>
+                    <br><br>
+                    <div>
+                        <form [formGroup]="postResult" *ngIf="this.isVisible" (submit)=postSubmit()>
+                            <label style="display: inline; font-weight: bolder;">Phone:</label>&nbsp;&nbsp;
+                            <input type="text" placeholder="Enter 10 digit phone number" style="width: 14rem;"
+                                id="phone" name="phone" formControlName="phone">&nbsp;
+                            <input type="submit" class="btn-primary" name="submit" id="save" value="Save"> &nbsp;&nbsp;
+                            <input type="button" class="btn-info" name="cancel" id="cancel" value="Cancel" (click)="onCancel()"> <br>
+                            <span *ngIf="postResult.get('phone').touched && !postResult.get('phone').valid">Enter 10
+                                digit phone number</span>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <br><br><br><br>
+        </div>
+    </div>
+</div>

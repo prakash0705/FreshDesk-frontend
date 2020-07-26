@@ -1,0 +1,36 @@
+<div class="row1"><br><br>
+    <div class="col-lg-12">
+        <table class="table table-bordered ">
+            <thead style="background-color:linen">
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Responder</th>
+                    <th scope="col">Created</th>
+                    <th scope="col">Last Update</th>
+                    <th>Update</th>
+                </tr>
+            </thead>
+            <tbody class="table-striped">
+                <tr *ngFor="let value of ticketList |async">
+                    <td>{{value.id}}</td>
+                    <td>{{value.title}}</td>
+                    <td >{{value.description}}</td>
+                    <td>{{value.status}}</td>
+                    <td>{{value.responderName}}</td>
+                    <td>{{value.created|date:'medium'}}</td>
+                    <td>{{value.lastModified|date:'medium'}}</td>
+                 <!--   <td><input type="button" name="Modify" class="btn btn-success"value="Modify" id="{{value.id}}" routerLink="../updateticket/{{value.id}}"><br><br>
+                        <input type="button" name="Delete" class="btn btn-primary" value="Delete" id="{{value.id}}">
+                    </td>
+                    -->
+                </tr>
+            </tbody>
+        </table>
+        <div>
+           <!-- <p><b>Note:</b> Once you delete ticket action can't be undone</p> -->
+        </div>
+    </div>
+</div>
