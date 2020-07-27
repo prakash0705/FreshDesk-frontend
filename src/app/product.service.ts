@@ -10,8 +10,8 @@ import { ToastrService } from 'ngx-toastr';
 export class ProductService {
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': 'https://freshdeskticket-backend.azurewebsites.net',
-    //'Access-Control-Request-Headers':'access-control-allow-origin'
+    'Access-Control-Allow-Origin': 'https://elated-engelbart-99d2f9.netlify.app',
+    //'Access-Control-Request-Headers':'GET,POST,PUT'
   });
   options = { headers: this.headers };
 
