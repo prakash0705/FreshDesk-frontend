@@ -10,8 +10,8 @@ import { ToastrService } from 'ngx-toastr';
 export class ProductService {
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Request-Headers':'access-control-allow-origin',
+    'Access-Control-Allow-Origin': 'https://freshdeskticket-backend.azurewebsites.net',
+    //'Access-Control-Request-Headers':'access-control-allow-origin'
   });
   options = { headers: this.headers };
 
