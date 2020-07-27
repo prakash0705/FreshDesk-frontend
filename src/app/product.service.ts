@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ProductService {
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': 'https://elated-engelbart-99d2f9.netlify.app',
+    'Access-Control-Allow-Origin': '*',
     //'Access-Control-Request-Headers':'GET,POST,PUT'
   });
   options = { headers: this.headers };
