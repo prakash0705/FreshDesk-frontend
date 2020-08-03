@@ -22,6 +22,9 @@ import { AddContactComponent } from './add-contact/add-contact.component';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 import { DashboardAdminViewComponent } from './dashboard-admin-view/dashboard-admin-view.component';
 import { DashboardAdminResponderComponent } from './dashboard-admin-responder/dashboard-admin-responder.component';
+import { DashboardAdminTicketstatusComponent } from './dashboard-admin-ticketstatus/dashboard-admin-ticketstatus.component';
+import { AllusersComponent } from './allusers/allusers.component';
+import { AllrespondersComponent } from './allresponders/allresponders.component';
 
 
 
@@ -42,7 +45,10 @@ import { DashboardAdminResponderComponent } from './dashboard-admin-responder/da
     AddContactComponent,
     DashboardAdminComponent,
     DashboardAdminViewComponent,
-    DashboardAdminResponderComponent
+    DashboardAdminResponderComponent,
+    DashboardAdminTicketstatusComponent,
+    AllusersComponent,
+    AllrespondersComponent
   ],
   imports: [
     BrowserModule,

@@ -19,8 +19,8 @@ export class ProductService {
   }
 
   PostRegister(data): Observable<any> {
-
-    return this.http.post("https://freshdeskticket-backend.azurewebsites.net/api/Ticket/register", data, this.options
+    //return this.http.post("https://freshdeskticket-backend.azurewebsites.net/api/Ticket/register", data, this.options
+    return this.http.post("https://localhost:44307/api/Ticket/register", data, this.options
     ).pipe(catchError(err => {
       if (err.status == 409) {
         this.toastr.error('Please login with your credentials', 'Email already exist', {
@@ -41,7 +41,7 @@ export class ProductService {
       ;
   }
   PostLogin(data): Observable<any> {
-    return this.http.post("https://freshdeskticket-backend.azurewebsites.net/api/Ticket/login", data, this.options
+    return this.http.post("https://localhost:44307/api/Ticket/login", data, this.options
     ).pipe(catchError(err => {
       console.log(err);
       if (err.status == 401) {
@@ -53,8 +53,15 @@ export class ProductService {
       return err;
     }))
   }
+  AllUserInfo():Observable<any>
+  {
+    return this.http.get("https://localhost:44307/api/Ticket/viewalluserinfo"
+    ).pipe(catchError(err=>{
+      return err;
+    }))
+  }
   AddTicket(data): Observable<any> {
-    return this.http.post("https://freshdeskticket-backend.azurewebsites.net/api/Ticket/addticket", data, this.options
+    return this.http.post("https://localhost:44307/api/Ticket/addticket", data, this.options
     ).pipe(catchError(err => {
       if (err.status == 400) {
         this.toastr.error('Unable to add ticket', 'Failed', {
@@ -67,7 +74,7 @@ export class ProductService {
     }))
   }
   ViewTicket(data): Observable<any> {
-    return this.http.get("https://freshdeskticket-backend.azurewebsites.net/api/Ticket/viewticket?id=" + data,
+    return this.http.get("https://localhost:44307/api/Ticket/viewticket?id=" + data,
     ).pipe(catchError(err => {
       if (err.status == 400) {
         this.toastr.error('Unable to process your request', 'Please try again', {
@@ -79,8 +86,22 @@ export class ProductService {
       return err;
     }))
   }
+  ViewTicketById(data): Observable<any> {
+    return this.http.get("https://localhost:44307/api/Ticket/viewticketid?id=" + data,
+    ).pipe(catchError(err => {
+      if (err.status == 400) {
+        this.toastr.error('Unable to process your request', 'Please try again', {
+          positionClass: 'toast-center-center',
+          timeOut: 3000
+        });
+      }
+      console.log(err);
+      return err;
+    }))
+  }
+  
   DeleteTicket(data): Observable<any> {
-    return this.http.post("https://freshdeskticket-backend.azurewebsites.net/api/Ticket/deleteticket", data, this.options
+    return this.http.post("https://localhost:44307/api/Ticket/deleteticket", data, this.options
     ).pipe(catchError(err => {
       if (err.status == 400) {
         console.log(data);
@@ -94,7 +115,7 @@ export class ProductService {
     }))
   }
   UpdateTicket(data): Observable<any> {
-    return this.http.put("https://freshdeskticket-backend.azurewebsites.net/api/Ticket/updateticket", data
+    return this.http.put("https://localhost:44307/api/Ticket/updateticket", data
     ).pipe(catchError(err => {
       if (err.status == 400) {
         this.toastr.error('Unable to process your request', 'Please try again', {
@@ -107,7 +128,7 @@ export class ProductService {
     }))
   }
   SearchTicket(data):Observable<any>{
-    return this.http.put("https://freshdeskticket-backend.azurewebsites.net/api/Ticket/searchticket",data,this.options
+    return this.http.put("https://localhost:44307/api/Ticket/searchticket",data,this.options
     ).pipe(catchError(err=>{
       if(err.status==400||err.status==500)
       {
@@ -121,14 +142,28 @@ export class ProductService {
     }))
   }
   ViewAllTicket():Observable<any>{
-    return this.http.get("https://freshdeskticket-backend.azurewebsites.net/api/Ticket/viewalluserstickets"
+    return this.http.get("https://localhost:44307/api/Ticket/viewalluserstickets"
     ).pipe(catchError(err=>{
       return err;
     }))
   }
   ChangeResponder(data):Observable<any>
   {
-    return this.http.post("https://freshdeskticket-backend.azurewebsites.net/api/Ticket/changeresponder",data,this.options
+    return this.http.post("https://localhost:44307/api/Ticket/changeresponder",data,this.options
+    ).pipe(catchError(err=>{
+      if(err.status==400||err.status==500)
+      {
+        this.toastr.error('Unable to process your request','Please try again',{
+          positionClass:'toast-center-center',
+          timeOut:2000
+        })
+      }
+      return err;
+    }))
+  }
+  ChangeStatus(data):Observable<any>
+  {
+    return this.http.post("https://localhost:44307/api/Ticket/changeticketstatus",data,this.options
     ).pipe(catchError(err=>{
       if(err.status==400||err.status==500)
       {
@@ -141,7 +176,7 @@ export class ProductService {
     }))
   }
   AddContact(data): Observable<any> {
-    return this.http.post("https://freshdeskticket-backend.azurewebsites.net/api/Ticket/addcontact", data, this.options
+    return this.http.post("https://localhost:44307/api/Ticket/addcontact", data, this.options
     ).pipe(catchError(err => {
       if (err.status == 400) {
         this.toastr.error('Unable to process your request', 'Please try again', {
@@ -153,7 +188,7 @@ export class ProductService {
     }))
   }
   ViewContact(data): Observable<any> {
-    return this.http.get("https://freshdeskticket-backend.azurewebsites.net/api/Ticket/viewcontact?id=" + data
+    return this.http.get("https://localhost:44307/api/Ticket/contactview?id=" + data
     ).pipe(catchError(err => {
       if (err.status == 400) {
         this.toastr.error('Unable to process your request', 'Please try again', {
@@ -165,7 +200,7 @@ export class ProductService {
     }))
   }
   UpdateContact(data): Observable<any> {
-    return this.http.put("https://freshdeskticket-backend.azurewebsites.net/api/Ticket/updatecontact", data, this.options
+    return this.http.put("https://localhost:44307/api/Ticket/updatecontact", data, this.options
     ).pipe(catchError(err => {
       if (err.status == 400) {
         this.toastr.error('Unable to process your request', 'Please try again', {
@@ -176,6 +211,5 @@ export class ProductService {
       return err;
     }))
   }
-
 
 }

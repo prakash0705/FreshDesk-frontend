@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProductService} from 'src/app/product.service';
-import { Observable } from 'rxjs';import { Ptor } from 'protractor';
-;
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-dashboard-admin-view',
   templateUrl: './dashboard-admin-view.component.html',

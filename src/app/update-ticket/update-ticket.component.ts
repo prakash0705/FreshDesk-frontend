@@ -31,10 +31,12 @@ export class UpdateTicketComponent implements OnInit {
     })
     this.ticketId=parseInt(this.activateRoute.snapshot.paramMap.get('id'));
     
-    this.ticketList=this.productService.ViewTicket(this.UserId);
+    this.ticketList=this.productService.ViewTicketById(this.ticketId);
+    console.log(this.ticketList);
     this.ticketList.forEach(element=>{
       element.forEach(element1=>{
       this.title=element1.title;
+      console.log(this.title);
       this.description=element1.description;
       })
       

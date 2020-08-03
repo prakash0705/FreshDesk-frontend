@@ -29,7 +29,7 @@
                                 <td>{{value.created|date:'medium'}}</td>
                                 <td>{{value.lastModified|date:'medium'}}</td>
                                 <td><input type="button" name="Modify" class="btn btn-success"value="Modify" id="{{value.id}}" routerLink="../updateticket/{{value.id}}"><br><br>
-                                    <input type="button" name="Delete" class="btn btn-primary" value="Delete" id="{{value.id}}" (click)=DeleteTicket($event)>
+                                    <input type="button" name="Delete" class="btn btn-primary" value="Delete " id="{{value.id}}" (click)=DeleteTicket($event)>
                                 </td>
         
                             </tr>

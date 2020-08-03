@@ -16,6 +16,9 @@ import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.compo
 import {AuthAdminService} from 'src/app/auth-admin.service';
 import { DashboardAdminViewComponent } from './dashboard-admin-view/dashboard-admin-view.component';
 import { DashboardAdminResponderComponent } from './dashboard-admin-responder/dashboard-admin-responder.component';
+import { DashboardAdminTicketstatusComponent } from './dashboard-admin-ticketstatus/dashboard-admin-ticketstatus.component';
+import { AllusersComponent } from './allusers/allusers.component';
+import { AllrespondersComponent } from './allresponders/allresponders.component';
 const routes: Routes = [
   {
     path:"",
@@ -80,8 +83,23 @@ const routes: Routes = [
     canActivateChild:[true]
   },
   {
-    path:"dashboardadmin/changeresponder",
+    path:"dashboardadmin/changeresponder/:id",
     component:DashboardAdminResponderComponent,
+    canActivateChild:[true]
+  },
+  {
+    path:"dashboardadmin/changestatus/:id",
+    component:DashboardAdminTicketstatusComponent,
+    canActivateChild:[true]
+  },
+  {
+    path:"dashboardadmin/allusers",
+    component:AllusersComponent,
+    canActivateChild:[true]
+  },
+  {
+    path:"dashboardadmin/allresponders",
+    component:AllrespondersComponent,
     canActivateChild:[true]
   }
 

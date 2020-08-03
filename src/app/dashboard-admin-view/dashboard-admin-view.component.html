@@ -1,11 +1,15 @@
-<div class="row1"><br><br>
-    <div class="col-lg-12">
+<div class="row1" ><br>
+    <div class="col-lg-12" style="font-size:14px">
+        <div class="text-center"><h4>All User Tickets</h4>
+        <br>
+        </div>
         <table class="table table-bordered ">
             <thead style="background-color:linen">
                 <tr>
                     <th scope="col">No</th>
+                    <th scope="col">User</th>
                     <th scope="col">Title</th>
-                    <th scope="col">Description</th>
+                    <th  colspan="2">Description</th>
                     <th scope="col">Status</th>
                     <th scope="col">Responder</th>
                     <th scope="col">Created</th>
@@ -16,16 +20,17 @@
             <tbody class="table-striped">
                 <tr *ngFor="let value of ticketList |async">
                     <td>{{value.id}}</td>
+                    <td>{{value.userName}}</td>
                     <td>{{value.title}}</td>
-                    <td >{{value.description}}</td>
+                    <td colspan="2" >{{value.description}}</td>
                     <td>{{value.status}}</td>
                     <td>{{value.responderName}}</td>
                     <td>{{value.created|date:'medium'}}</td>
                     <td>{{value.lastModified|date:'medium'}}</td>
-                 <!--   <td><input type="button" name="Modify" class="btn btn-success"value="Modify" id="{{value.id}}" routerLink="../updateticket/{{value.id}}"><br><br>
-                        <input type="button" name="Delete" class="btn btn-primary" value="Delete" id="{{value.id}}">
+                    <td><input type="button" name="Modify" class="btn btn-primary"value="Assign Responder" id="{{value.id}}" routerLink="../changeresponder/{{value.id}}"><br><br>
+                        <input type="button" name="Delete" class="btn btn-info" value="   Change Status   " id="{{value.id}}" routerLink="../changestatus/{{value.id}}">
                     </td>
-                    -->
+                
                 </tr>
             </tbody>
         </table>

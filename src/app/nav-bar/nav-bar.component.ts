@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { element } from 'protractor';
+import {AuthAdminService} from 'src/app/auth-admin.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -11,12 +12,18 @@ export class NavBarComponent implements OnInit {
   data;
   UserData=[];
   Username;
+  isAdmin:Boolean;
  
-  constructor()
+  constructor(private authAdminService:AuthAdminService)
    {
       if(window.localStorage.getItem("token")!=null)
       {
+        if(this.authAdminService.checkUser())
+        {
+          this.isAdmin=true;
+        }
         this.isVisible=true;
+        //this.isAdmin=false;
         this.data=JSON.parse(window.localStorage.getItem("token"));
         this.UserData.push(this.data.data);
         this.UserData.forEach(element=>{

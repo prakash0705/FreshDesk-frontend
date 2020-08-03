@@ -6,41 +6,75 @@
             <table>
                 <tr>
                     <td>
-                        <label for="userid">Enter userId</label>
+                        <label for="userid" style="font-weight: bolder;">Ticket number</label>
                     </td>
                     <td>
                         
-                        <input type="text" name="userid" id=userid formControlName="userid">
+                        <input type="text" style="width: 40rem;" name="ticketid" id="ticketid" value={{ticketId}} disabled>
                         <br>
-                        <span *ngIf="!this.postResult.get('userid').valid && this.postResult.get('userid').touched">This field is required</span>
+                 
                     </td>
                 </tr>
                 <br>
                 <tr>
                     <td>
-                        <label for="ticketid">Enter ResponderId</label>
+                        <label for="title" style="font-weight: bolder;">Title:</label>
                     </td>
                     <td>
-                        <input type="text" name="responderid" id="responderid" formControlName="responderid">
-                        <br>
-                        <span *ngIf="!this.postResult.get('responderid').valid && this.postResult.get('responderid').touched">This field is required</span>
+                        <input type="text" name="title" id="title" value={{title}} style="width: 40rem;" disabled>
+                    </td>                   
+                </tr>
+                <br>
+                <tr>
+                    <td>
+                        <label for="description" style="font-weight: bolder;">Description</label>
+                    </td>
+                    <td>
+                        <textarea name="description" id="description" cols="85" rows="5" value={{description}} disabled></textarea>
                     </td>
                 </tr>
+                <br>
+                <tr>
+                    <td>
+                        <label for="ticketid" style="font-weight: bolder;">Assign Responder</label>
+                    </td>
+                    <td>
+                        <select name="responderid" id="responderid" style="width: 40rem;" formControlName="responderid">
+                            <option value="2" id="responderid">2 - Sudhakaran K</option>
+                            <option value="4"  id="responderid">4 - John Thomas</option>
+                          </select>
+                          <br>
+                          <span *ngIf="!this.postResult.get('responderid').valid && this.postResult.get('responderid').pristine">This field is required</span>
+                    </td>
+                </tr>
+                <br>
                 <br>
                 <tr>
                     <td colspan="2" class="text-center">
-                        <input type="button" class="btn-primary" value="change" (click)="submitData()">
+                        <input type="button" class="btn btn-primary" value="Change" (click)="submitData()">&nbsp;&nbsp;
+                        <input type="button" name="cancel" class="btn btn-info" id="cancel" value="Cancel" (click)="cancelData()">
                     </td>
                 </tr>
             </table>
         </form>
+        <br><br>
+     <!--   <div>
+            <table class="table">
+                <thead>
+                    <th>userId</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                </thead>
+                <tr *ngFor="let item of AllUser |async">
+                    <td>{{item.id}}</td>
+                    <td>{{item.userName}}</td>
+                    <td>{{item.email}}</td>
+                </tr>
+            </table>
+        </div>
+        -->    
             
-            
-            <br><br>
-            
-            
-            <br><br>
-            
+
         </div>
     </div>
 </div>

@@ -33,7 +33,8 @@ export class ViewTicketComponent implements OnInit {
     }
     this.ticketList=this.productList.ViewTicket(this.UserId);
     this.ticketList.forEach(element=>{
-      this.UserData.push(element);
+   //   this.UserData.push(element);
+     // console.log(this.UserData)
       
     })
    // console.log(this.ticketList);
